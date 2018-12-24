@@ -18,4 +18,8 @@ public class PedidoService {
 		Optional<Pedido> pedido = pedidoRepository.findById(id);
 		return pedido.orElse(null);
 	}
+	
+	public void inserirAtualizar(Pedido newPedido) {
+		pedidoRepository.save(newPedido);
+	}
 }

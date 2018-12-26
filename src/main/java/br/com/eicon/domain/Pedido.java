@@ -134,6 +134,14 @@ public class Pedido implements Serializable {
 			this.ped_n_desconto = new Integer(0);
 		}
 	}
+	
+	public List<Integer> getIdPedidos(List<Pedido> pedidos){
+		List<Integer> k_ids = new ArrayList<>();		
+		for (int i = 0; i < pedidos.size(); i++) {
+			k_ids.add(pedidos.get(i).getPed_n_id());
+		}
+		return k_ids;		
+	}
 
 	@Override
 	public int hashCode() {

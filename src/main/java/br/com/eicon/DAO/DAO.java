@@ -3,6 +3,7 @@ package br.com.eicon.DAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 public class DAO {
 
@@ -49,8 +50,7 @@ public class DAO {
 		DAO.session.set(null);
 	}
 
-	private static final ThreadLocal session = new ThreadLocal();
+	private static final ThreadLocal<Session> session = new ThreadLocal<Session>();
 
-	private static final SessionFactory sessionFactory = new AnnotationConfiguration().configure()
-			.buildSessionFactory();
+	private static final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 }

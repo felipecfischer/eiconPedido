@@ -14,7 +14,13 @@ public class ItemService {
 	@Autowired
 	private ItemRepository itemRepository;
 	
-	public void inserir(List<Item> PedidoItem) {
-		itemRepository.saveAll(PedidoItem);
+	public boolean inserir(List<Item> PedidoItem) {
+		boolean k_ok = true;
+		try {
+			itemRepository.saveAll(PedidoItem);
+		} catch (Exception e) {
+			k_ok = false;
+		} 
+		return k_ok;
 	}
 }
